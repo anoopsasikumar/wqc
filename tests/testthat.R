@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(wqca)
+library(wqc)
 
-test_check("wqca")
+test_check("wqc")
