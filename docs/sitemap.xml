@@ -1,11 +1,12 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>/404.html</loc></url>
-<url><loc>/articles/index.html</loc></url>
-<url><loc>/articles/WQCTutorial.html</loc></url>
-<url><loc>/authors.html</loc></url>
-<url><loc>/index.html</loc></url>
-<url><loc>/reference/apply_quantile_correlation.html</loc></url>
-<url><loc>/reference/index.html</loc></url>
-<url><loc>/reference/quantile_correlation_analysis.html</loc></url>
+<url><loc>https://anoopsasikumar.github.io/wqc/404.html</loc></url>
+<url><loc>https://anoopsasikumar.github.io/wqc/articles/index.html</loc></url>
+<url><loc>https://anoopsasikumar.github.io/wqc/articles/WQCTutorial.html</loc></url>
+<url><loc>https://anoopsasikumar.github.io/wqc/authors.html</loc></url>
+<url><loc>https://anoopsasikumar.github.io/wqc/index.html</loc></url>
+<url><loc>https://anoopsasikumar.github.io/wqc/news/index.html</loc></url>
+<url><loc>https://anoopsasikumar.github.io/wqc/reference/apply_quantile_correlation.html</loc></url>
+<url><loc>https://anoopsasikumar.github.io/wqc/reference/index.html</loc></url>
+<url><loc>https://anoopsasikumar.github.io/wqc/reference/quantile_correlation_analysis.html</loc></url>
 </urlset>
 
