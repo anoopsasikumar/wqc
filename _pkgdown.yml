@@ -1,4 +1,14 @@
-url: ~
+url: https://anoopsasikumar.github.io/wqc/
 template:
   bootstrap: 5
+site:
+  title: "wqc"
+navbar:
+  structure:
+    left:
+      - home
+      - reference
+      - articles
+      - news
+  text: "wqc"
 
