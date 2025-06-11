@@ -9,7 +9,7 @@
 #' @param wf Wavelet family name.
 #' @param J Decomposition level.
 #' @param n_sim Number of simulations for confidence intervals.
-#' @return A combined data.frame of quantile correlation results, with one row per level–quantile–series combination.
+#' @return A combined data.frame of quantile correlation results, with one row per level-quantile-series combination.
 #' @examples
 #' data <- data.frame(x = rnorm(1000), y = rnorm(1000), z = rnorm(1000))
 #' quantiles <- c(0.05, 0.5, 0.95)
@@ -72,7 +72,6 @@ quantile_correlation_analysis <- function(x, y, quantiles, wf = 'la8', J = 8, n_
   ci_upper <- apply(simulated_qc, c(2, 3), quantile, probs = 0.975)
 
   data.frame(
-    Series       = NA_character_, # placeholder, will be set by apply_quantile_correlation
     Level        = rep(seq_len(J), each = length(quantiles)),
     Quantile     = rep(quantiles, times = J),
     Estimated_QC = unlist(qc_results),
