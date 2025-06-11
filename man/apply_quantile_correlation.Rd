@@ -18,7 +18,7 @@ apply_quantile_correlation(data, quantiles, wf = "la8", J = 8, n_sim = 1000)
 \item{n_sim}{Number of simulations for confidence intervals.}
 }
 \value{
-A combined data.frame of quantile correlation results, with one row per level–quantile–series combination.
+A combined data.frame of quantile correlation results, with one row per level-quantile-series combination.
 }
 \description{
 Apply Quantile Correlation Analysis
