@@ -1,0 +1,106 @@
+---
+title: "Wavelet Quantile Correlation Tutorial"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    number_sections: true
+vignette: |
+  %\VignetteIndexEntry{Wavelet Quantile Correlation Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+Wavelet Quantile Correlation (WQC) is a powerful tool for examining scale-specific dependence between two time series at different points of the distribution (e.g., tails or median). By combining the maximal overlap discrete wavelet transform (MODWT) with quantile correlation measures, WQC uncovers how extreme and central co-movements vary across time scales. The **wqca** package implements WQC in two user-friendly functions:
+
+- **quantile_correlation_analysis(x, y, quantiles, ...)**: Computes quantile correlations with monte-carlo confidence intervals for a single X-Y pair.
+- **apply_quantile_correlation(data, quantiles, ...)**: Applies the above analysis across a single X variables and multiple Y series, returning a consolidated data frame.
+
+
+# Theory
+
+## Quantile Correlation (QC)
+
+Let $X$ and $Y$ be two random variables. For a quantile level $\tau\in(0,1)$, define the influence function:
+
+$$
+\phi_\tau(w) = \tau - I(w < 0),
+$$
+
+where $I(\cdot)$ is the indicator function. The quantile covariance of $Y$ and $X$ at $\tau$ is:
+
+$$
+\mathrm{qcov}_\tau(Y,X) = \mathrm{Cov}\bigl(\phi_\tau(Y - Q_{\tau,Y}),\,X - \mathbb{E}[X]\bigr),
+$$
+
+with $Q_{\tau,Y}$ the $\tau$th quantile of $Y$. The Quantile Correlation (QC) is then:
+
+$$
+\mathrm{QC}_\tau(X,Y) = \frac{\mathrm{qcov}_\tau(Y,X)}{\sqrt{\mathrm{Var}(\phi_\tau(Y - Q_{\tau,Y}))\,\mathrm{Var}(X)}}.
+$$
+
+## Maximal Overlap Discrete Wavelet Transform (MODWT)
+
+To capture scale-dependent dynamics, each series is decomposed into $J$ levels of detail coefficients via MODWT (Percival & Walden, 2000):
+
+1. **Filter**: Convolve the series with low-pass ($h_j$) and high-pass ($g_j$) filters to obtain approximation $a_j$ and detail $d_j$ coefficients.
+2. **Upsample**: For level $j+1$, upsample filters by inserting zeros and repeat filtering on $a_j$.
+3. **Collect**: The resulting vectors $d_1,\dots,d_J$ isolate fluctuations at dyadic scales (fine to coarse).
+
+## Wavelet Quantile Correlation (WQC)
+
+For each level $j=1,\dots,J$ and quantile $\tau$:
+
+1. Decompose series $X$ and $Y$ into detail coefficients $d_j[X]$ and $d_j[Y]$.
+2. Compute $\mathrm{QC}_\tau(d_j[X],d_j[Y])$ using the formula above.
+3. Simulate $n_{\mathrm{sim}}$ Gaussian surrogates matching the empirical mean and variance of each $d_j[\cdot]$ to obtain  confidence intervals at the 2.5% and 97.5% percentiles.
+
+The function **quantile_correlation_analysis()** automates these computations, returning a data frame:
+
+| Level | Quantile | Estimated_QC | CI_Lower | CI_Upper |
+|:-----:|:--------:|:------------:|:--------:|:--------:|
+| 1     | 0.05     |    0.12      |   0.05   |   0.18   |
+| ...   | ...      |    ...       |   ...    |   ...    |
+| $J$   | 0.95     |   -0.03      |  -0.08   |   0.01   |
+
+
+# Examples
+
+## 1. Multi-Series Analysis with `apply_quantile_correlation()`
+
+```r
+library(wqca)
+set.seed(123)
+# Reference series plus two targets
+data <- data.frame(
+  x = rnorm(512),
+  y = 0.6 * rnorm(512) + 0.4 * rnorm(512),
+  z = rnorm(512)
+)
+quantiles <- c(0.1, 0.5, 0.9)
+# Compute WQC up to 3 levels with 300 bootstrap sims
+res_df <- apply_quantile_correlation(data, quantiles, J = 3, n_sim = 300)
+# View top rows
+head(res_df)
+```
+
+## 2. Single-Pair Analysis with `quantile_correlation_analysis()`
+
+```r
+library(wqca)
+set.seed(456)
+x <- rnorm(600)
+y <- 0.8 * x + 0.2 * rnorm(600)
+quantiles <- c(0.05, 0.5, 0.95)
+# Analyze one pair at 4 levels with 200 sims
+single_res <- quantile_correlation_analysis(x, y, quantiles, J = 4, n_sim = 200)
+# Inspect results
+single_res
+```
+
+# References
+
+Kumar, A. S., & Padakandla, S. R. (2022). Testing the safe-haven properties of gold and bitcoin in the backdrop of COVID-19: A wavelet quantile correlation approach. *Finance Research Letters*, 47, 102707.
+
+Percival, D. B., & Walden, A. T. (2000). *Wavelet Methods for Time Series Analysis*. Cambridge University Press.
