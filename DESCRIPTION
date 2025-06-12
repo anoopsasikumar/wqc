@@ -1,6 +1,7 @@
 Package: wqc
 Title: Wavelet Quantile Correlation Analysis
-Version: 0.1.0
+Version: 0.1.1
+Date:2025-06-12
 Authors@R: 
   person("Anoop S","Kumar", role = c("aut", "cre"), email = "akumar.sasikumar@gmail.com")
 Description: Compute wavelet quantile correlations between two time series. See <doi:10.1016/j.frl.2022.102707> for further details.
