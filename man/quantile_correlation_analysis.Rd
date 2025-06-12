@@ -28,6 +28,6 @@ Quantile Correlation Analysis
 \examples{
 data <- data.frame(x = rnorm(1000), y = rnorm(1000))
 quantiles <- c(0.05, 0.5, 0.95)
-result <- quantile_correlation_analysis(data$x, data$y, quantiles)
+result <- quantile_correlation_analysis(data$x, data$y, quantiles,n_sim=10)
 head(result)
 }

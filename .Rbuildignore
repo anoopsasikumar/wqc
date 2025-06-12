@@ -5,4 +5,6 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
-
+^CRAN-SUBMISSION$
+^\.github$
+^cran-comments\.md$

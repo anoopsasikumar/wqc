@@ -13,7 +13,7 @@
 #' @examples
 #' data <- data.frame(x = rnorm(1000), y = rnorm(1000), z = rnorm(1000))
 #' quantiles <- c(0.05, 0.5, 0.95)
-#' res_df <- apply_quantile_correlation(data, quantiles)
+#' res_df <- apply_quantile_correlation(data, quantiles,n_sim=10)
 #' head(res_df)
 #' @export
 apply_quantile_correlation <- function(data, quantiles, wf = 'la8', J = 8, n_sim = 1000) {
@@ -42,7 +42,7 @@ apply_quantile_correlation <- function(data, quantiles, wf = 'la8', J = 8, n_sim
 #' @examples
 #' data <- data.frame(x = rnorm(1000), y = rnorm(1000))
 #' quantiles <- c(0.05, 0.5, 0.95)
-#' result <- quantile_correlation_analysis(data$x, data$y, quantiles)
+#' result <- quantile_correlation_analysis(data$x, data$y, quantiles,n_sim=10)
 #' head(result)
 #' @export
 quantile_correlation_analysis <- function(x, y, quantiles, wf = 'la8', J = 8, n_sim = 1000) {

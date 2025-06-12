@@ -3,7 +3,7 @@ Title: Wavelet Quantile Correlation Analysis
 Version: 0.1.0
 Authors@R: 
   person("Anoop S","Kumar", role = c("aut", "cre"), email = "akumar.sasikumar@gmail.com")
-Description: Compute wavelet quantile correlations between two time series. The method could be found at https://doi.org/10.1016/j.frl.2022.102707.
+Description: Compute wavelet quantile correlations between two time series. See <doi:10.1016/j.frl.2022.102707> for further details.
 Depends: R (>= 4.0)
 Imports:
     waveslim,

@@ -26,6 +26,6 @@ Apply Quantile Correlation Analysis
 \examples{
 data <- data.frame(x = rnorm(1000), y = rnorm(1000), z = rnorm(1000))
 quantiles <- c(0.05, 0.5, 0.95)
-res_df <- apply_quantile_correlation(data, quantiles)
+res_df <- apply_quantile_correlation(data, quantiles,n_sim=10)
 head(res_df)
 }
