@@ -72,7 +72,7 @@ scale-specific dependence between two time series at different points of
 the distribution (e.g., tails or median). By combining the maximal
 overlap discrete wavelet transform (MODWT) with quantile correlation
 measures, WQC uncovers how extreme and central co-movements vary across
-time scales. The <strong>wqca</strong> package implements WQC in two
+time scales. The <strong>wqc</strong> package implements WQC in two
 user-friendly functions:</p>
 <ul>
 <li>
@@ -81,8 +81,9 @@ Computes quantile correlations with monte-carlo confidence intervals for
 a single X-Y pair.</li>
 <li>
 <strong>apply_quantile_correlation(data, quantiles, …)</strong>:
-Applies the above analysis across a single X variables and multiple Y
-series, returning a consolidated data frame.</li>
+Applies the above analysis across a single Y variable and multiple X
+variables, returning a consolidated data frame with pairwise
+results.</li>
 </ul>
 </div>
 <div class="section level2">

@@ -82,15 +82,15 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">quantiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.95</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">quantile_correlation_analysis</span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">x</span>, <span class="va">data</span><span class="op">$</span><span class="va">y</span>, <span class="va">quantiles</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">quantile_correlation_analysis</span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">x</span>, <span class="va">data</span><span class="op">$</span><span class="va">y</span>, <span class="va">quantiles</span>,n_sim<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Level Quantile Estimated_QC    CI_Lower   CI_Upper</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     1     0.05  -0.04684008 -0.06314364 0.06340542</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     1     0.50   0.01067481 -0.06549653 0.06050327</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     1     0.95   0.02323632 -0.06387003 0.06385663</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     2     0.05   0.03722293 -0.05969569 0.06792701</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     2     0.50   0.02319323 -0.06105677 0.05871031</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     2     0.95   0.02635557 -0.05950943 0.06047319</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     1     0.05  0.006239582 -0.04798790 0.04009330</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     1     0.50 -0.016313725 -0.07515003 0.02584506</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     1     0.95  0.038424816 -0.05625150 0.05223455</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     2     0.05 -0.079622731 -0.04780730 0.02252544</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     2     0.50 -0.161675487 -0.05177284 0.01869497</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     2     0.95 -0.067437622 -0.03285191 0.03021302</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
