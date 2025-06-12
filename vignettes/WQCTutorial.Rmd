@@ -15,7 +15,7 @@ vignette: |
 Wavelet Quantile Correlation (WQC) is a powerful tool for examining scale-specific dependence between two time series at different points of the distribution (e.g., tails or median). By combining the maximal overlap discrete wavelet transform (MODWT) with quantile correlation measures, WQC uncovers how extreme and central co-movements vary across time scales. The **wqc** package implements WQC in two user-friendly functions:
 
 - **quantile_correlation_analysis(x, y, quantiles, ...)**: Computes quantile correlations with monte-carlo confidence intervals for a single X-Y pair.
-- **apply_quantile_correlation(data, quantiles, ...)**: Applies the above analysis across a single Y variable and multiple X series, returning a consolidated data frame.
+- **apply_quantile_correlation(data, quantiles, ...)**: Applies the above analysis across a single Y variable and multiple X variables, returning a consolidated data frame with pairwise results.
 
 
 # Theory
