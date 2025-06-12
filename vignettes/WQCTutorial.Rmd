@@ -12,10 +12,13 @@ vignette: |
 
 # Introduction
 
-Wavelet Quantile Correlation (WQC) is a powerful tool for examining scale-specific dependence between two time series at different points of the distribution (e.g., tails or median). By combining the maximal overlap discrete wavelet transform (MODWT) with quantile correlation measures, WQC uncovers how extreme and central co-movements vary across time scales. The **wqc** package implements WQC in two user-friendly functions:
+Wavelet Quantile Correlation (WQC) is a powerful tool for examining scale-specific dependence between two time series at different points of the distribution (e.g., tails or median). By combining the maximal overlap discrete wavelet transform (MODWT) with quantile correlation measures, WQC uncovers how extreme and central co-movements vary across time scales. The **wqc** package implements WQC in three user-friendly functions:
 
 - **quantile_correlation_analysis(x, y, quantiles, ...)**: Computes quantile correlations with monte-carlo confidence intervals for a single X-Y pair.
 - **apply_quantile_correlation(data, quantiles, ...)**: Applies the above analysis across a single Y variable and multiple X variables, returning a consolidated data frame with pairwise results.
+- **plot_quantile_heatmap(  df,label_levels,palette,...)** : plots the estimated
+quantile correlations in a heatmap form. The significant values will be bordered
+by a white line.
 
 
 # Theory
@@ -98,7 +101,21 @@ single_res <- quantile_correlation_analysis(x, y, quantiles, J = 4, n_sim = 200)
 # Inspect results
 single_res
 ```
+# 3. Visualizing with a Heatmap with `plot_quantile_heatmap() `
 
+Once you have your correlation results from **quantile_correlation_analysis()** , you can plot them at a glance:
+
+```
+# compute a small example
+set.seed(100)
+df <- quantile_correlation_analysis(
+  x = rnorm(128), y = rnorm(128),
+  quantiles = c(0.1, 0.5, 0.9),
+  J = 4, n_sim = 50
+)
+plot_quantile_heatmap(df)
+
+```
 # References
 
 Kumar, A. S., & Padakandla, S. R. (2022). Testing the safe-haven properties of gold and bitcoin in the backdrop of COVID-19: A wavelet quantile correlation approach. *Finance Research Letters*, 47, 102707.

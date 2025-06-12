@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">wqc</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@ scale-specific dependence between two time series at different points of
 the distribution (e.g., tails or median). By combining the maximal
 overlap discrete wavelet transform (MODWT) with quantile correlation
 measures, WQC uncovers how extreme and central co-movements vary across
-time scales. The <strong>wqc</strong> package implements WQC in two
+time scales. The <strong>wqc</strong> package implements WQC in three
 user-friendly functions:</p>
 <ul>
 <li>
@@ -84,6 +84,10 @@ a single X-Y pair.</li>
 Applies the above analysis across a single Y variable and multiple X
 variables, returning a consolidated data frame with pairwise
 results.</li>
+<li>
+<strong>plot_quantile_heatmap( df,label_levels,palette,…)</strong> :
+plots the estimated quantile correlations in a heatmap form. The
+significant values will be bordered by a white line.</li>
 </ul>
 </div>
 <div class="section level2">
@@ -252,6 +256,22 @@ automates these computations, returning a data frame:</p>
 <span><span class="co"># Inspect results</span></span>
 <span><span class="va">single_res</span></span></code></pre></div>
 </div>
+</div>
+<div class="section level2">
+<h2 id="visualizing-with-a-heatmap-with-plot_quantile_heatmap">3. Visualizing with a Heatmap with
+<code>plot_quantile_heatmap()</code><a class="anchor" aria-label="anchor" href="#visualizing-with-a-heatmap-with-plot_quantile_heatmap"></a>
+</h2>
+<p>Once you have your correlation results from
+<strong>quantile_correlation_analysis()</strong> , you can plot them at
+a glance:</p>
+<pre><code><span><span class="co"># compute a small example</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/quantile_correlation_analysis.html">quantile_correlation_analysis</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">128</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">128</span><span class="op">)</span>,</span>
+<span>  quantiles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span><span class="op">)</span>,</span>
+<span>  J <span class="op">=</span> <span class="fl">4</span>, n_sim <span class="op">=</span> <span class="fl">50</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_quantile_heatmap.html">plot_quantile_heatmap</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
