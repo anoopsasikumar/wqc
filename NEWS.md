@@ -1,4 +1,9 @@
-# wqc 0.1.1 (2025-06-15)
+# wqc 0.1.2 (2025-06-11)
+
+- Added a new function to plot heatmaps  
+- Rebuilt vignette and pkgdown site to incorporate the changes.
+
+# wqc 0.1.1 (2025-06-11)
 
 - Fixed DOI/URL syntax in the DESCRIPTION (angle-bracketed URLs, `<doi:…>`).  
 - Added a `.Rbuildignore` to exclude `.github/` and `cran-comments.md` from the CRAN tarball.  

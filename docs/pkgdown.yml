@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   WQCTutorial: WQCTutorial.html
-last_built: 2025-06-12T11:29Z
+last_built: 2025-06-12T11:37Z
 urls:
   reference: https://anoopsasikumar.github.io/wqc/reference
   article: https://anoopsasikumar.github.io/wqc/articles
