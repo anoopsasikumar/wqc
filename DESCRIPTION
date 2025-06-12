@@ -1,6 +1,6 @@
 Package: wqc
 Title: Wavelet Quantile Correlation Analysis
-Version: 0.1.1
+Version: 0.1.2
 Date:2025-06-12
 Authors@R: 
   person("Anoop S","Kumar", role = c("aut", "cre"), email = "akumar.sasikumar@gmail.com")
