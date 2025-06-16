@@ -1,3 +1,7 @@
+# wqc 0.1.2 (2025-06-16)
+
+-Included a detailed description of the package
+
 # wqc 0.1.2 (2025-06-11)
 
 - Added a new function to plot heatmaps  
