@@ -4,7 +4,7 @@ Version: 0.1.2
 Date:2025-06-12
 Authors@R: 
   person("Anoop S","Kumar", role = c("aut", "cre"), email = "akumar.sasikumar@gmail.com")
-Description: Compute wavelet quantile correlations between two time series. See <doi:10.1016/j.frl.2022.102707> for further details.
+Description:This package implements routines to estimate and plot wavelet quantile correlations(kumar and Padakandla,2022) between two time series. Wavelet quantile correlations are used to capture the dependency between two time series across quantiles and different frequencies. This method is useful in identifying potentil hedges and safe-haven instruments for investment purposes. See Kumar and Padakandla(2022) <doi:10.1016/j.frl.2022.102707> for further details.
 Depends: R (>= 4.0)
 Imports:
     waveslim,
