@@ -1,6 +1,7 @@
 # wqc 0.1.2 (2025-06-16)
 
 -Included a detailed description of the package
+-Corrected the Description of the package in line with CRAN requirements.
 
 # wqc 0.1.2 (2025-06-11)
 
