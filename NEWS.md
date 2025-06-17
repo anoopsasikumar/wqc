@@ -1,3 +1,6 @@
+# wqc 0.1.2 (2025-06-17)
+- Updated the DESCRIPTION File for CRAN Submission
+
 # wqc 0.1.2 (2025-06-16)
 
 -Included a detailed description of the package
